@@ -37,3 +37,35 @@ Client-WebDAV[Client-WebDAV]--WS-Data-Link-->Store-Node3[Store-Node3]
 User[User]--WebDAV-->Client-WebDAV[Client-WebDAV]
 User[User]--Web-->Client-Web[Client-Web]
 ```
+
+## MetaNode
+
+Json files in MetaNode, which are used to store the information of the data nodes and file lists.
+
+Var: Bucket name and Metanode uri.
+
+```json
+# nodelist.json
+{
+    string(id): {
+        "name": string(node name),
+        "uri":  string(node uri),
+    }
+}
+```
+
+```json
+# filelist.json
+{
+    string(path+filename): {
+        "slices": [
+            1,
+            2,
+            ...
+        ],
+        "modify_timestamp": int(unix timestamp),
+        "size":  int(bytes),
+    }
+}
+```
+
