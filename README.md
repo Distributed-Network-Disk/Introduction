@@ -59,8 +59,8 @@ Var: Bucket name and Metanode uri.
 {
     string(path+filename): {
         "shards": [
-            1,
-            2,
+            "1",
+            "2",
             ...
         ],
         "modified": int(unix timestamp),
