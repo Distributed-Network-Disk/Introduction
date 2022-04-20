@@ -49,7 +49,7 @@ Var: Bucket name and Metanode uri.
 {
     string(id): {
         "name": string(node name),
-        "uri":  string(node uri),
+        "url":  string(node url),
     }
 }
 ```
@@ -58,14 +58,13 @@ Var: Bucket name and Metanode uri.
 # filelist.json
 {
     string(path+filename): {
-        "slices": [
+        "shards": [
             1,
             2,
             ...
         ],
-        "modify_timestamp": int(unix timestamp),
+        "modified": int(unix timestamp),
         "size":  int(bytes),
     }
 }
 ```
-
