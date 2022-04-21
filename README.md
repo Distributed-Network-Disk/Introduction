@@ -6,8 +6,8 @@ New planning architecture (**Don't Repeat Yourself**, use Minio):
 
 ```mermaid
 graph LR;
-Client-Web[Client-Web]--S3-Link-->Minio-MetaNode[Minio-MetaNode]
-Client-WebDAV[Client-WebDAV]--S3-Link-->Minio-MetaNode[Minio-MetaNode]
+Client-Web[Client-Web]--S3-Link-->Redis-MetaNode[Redis-MetaNode]
+Client-WebDAV[Client-WebDAV]--S3-Link-->Redis-MetaNode[Redis-MetaNode]
 Client-Web[Client-Web]--S3-Link-->Minio-DataNode1[Minio-DataNode1]
 Client-Web[Client-Web]--S3-Link-->Minio-DataNode2[Minio-DataNode2]
 Client-Web[Client-Web]--S3-Link-->Minio-DataNode3[Minio-DataNode3]
@@ -63,6 +63,9 @@ Var: Bucket name and Metanode uri.
             "2",
             ...
         ],
+        "padding": int(zero padding size in tail),
+        "parityNum": int(redundancy size),
+        "shardSize": int(shard size),
         "modified": int(unix timestamp),
         "size":  int(bytes),
     }
