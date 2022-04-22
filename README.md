@@ -6,14 +6,16 @@ New planning architecture (**Don't Repeat Yourself**, use Minio):
 
 ```mermaid
 graph LR;
-Client-Web[Client-Web]--S3-Link-->Redis-MetaNode[Redis-MetaNode]
-Client-WebDAV[Client-WebDAV]--S3-Link-->Redis-MetaNode[Redis-MetaNode]
+Client-Web[Client-Web]--Redis-->Redis-MetaNode[Redis-MetaNode]
+Client-WebDAV[Client-WebDAV]--Redis-->Redis-MetaNode[Redis-MetaNode]
 Client-Web[Client-Web]--S3-Link-->Minio-DataNode1[Minio-DataNode1]
 Client-Web[Client-Web]--S3-Link-->Minio-DataNode2[Minio-DataNode2]
 Client-Web[Client-Web]--S3-Link-->Minio-DataNode3[Minio-DataNode3]
+Client-Web[Client-Web]--S3-Link-->Minio-DataNode4[Minio-DataNode4]
 Client-WebDAV[Client-WebDAV]--S3-Link-->Minio-DataNode1[Minio-DataNode1]
 Client-WebDAV[Client-WebDAV]--S3-Link-->Minio-DataNode2[Minio-DataNode2]
 Client-WebDAV[Client-WebDAV]--S3-Link-->Minio-DataNode3[Minio-DataNode3]
+Client-WebDAV[Client-WebDAV]--S3-Link-->Minio-DataNode4[Minio-DataNode4]
 User[User]--WebDAV-->Client-WebDAV[Client-WebDAV]
 User[User]--Web-->Client-Web[Client-Web]
 ```
